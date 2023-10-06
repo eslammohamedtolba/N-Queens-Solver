@@ -21,14 +21,14 @@ class GameRunning:
 
         if anySolver==0:
             # If the user chooses to play themselves
-            while True:
+            while self.gamerunning:
                 x = int(input(f"Enter x-axis: "))
                 y = int(input(f"Enter y-axis: "))
                 if self.board.UpdateBoard(x,y):
                     self.board.PrintBoard()
                     if self.board.IsWinner():
                         print("You won!")
-                        break
+                        self.gamerunning=False
                 else:
                     print("Invalid play")
         else:
